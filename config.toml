@@ -43,7 +43,7 @@ publishdir = ""
 
     # Metadata used to drive integrations.
     #googleAuthorship = "Your Google+ profile ID"
-    #googleAnalytics = "Your Google Analytics tracking code"
+    googleAnalytics = "UA-61327070-1"
     gravatarHash = "afe70953cbdaeca0b1a8388aac052e7e"
 
     # Sidebar social links, avoid enabling too many of these if possible.
