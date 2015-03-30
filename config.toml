@@ -1,5 +1,53 @@
-languageCode = "en-us"
-title = "Grange74's GitHub Page"
-theme = "hugo-uno"
 baseurl = "http://grange74.github.io"
+title = "grange74's blog"
+languageCode = "en-us"
+MetaDataFormat = "toml"
+theme = "hyde-x"
+paginate = 10
+
+# this changes the default from public so that Personal GitHub Pages gets the index.html at the root directory
 publishdir = ""
+
+[author]
+    name = "Nicolas Grange"
+
+[permalinks]
+    # Optional. Change the permalink format for the 'post' content type.
+    # The format shown here is the same one Jekyll/Octopress uses by default.
+    post = "/blog/:year/:month/:day/:title/"
+
+[indexes]
+    # Optional. Use if you want tags and lists.
+    category = "categories"
+
+#
+# All parameters below here are optional and can be mixed and matched.
+#
+[params]
+    # Used when a given page doesn't set its own.
+    defaultDescription = "grange74's blog"
+    defaultKeywords = "grange74,blog"
+
+    # Changes sidebar background and link/accent colours.
+    # See below for more colour options.
+    # This also works: "theme-base-08 layout-reverse", or just "layout-reverse".
+    theme = "theme-base-0d"
+
+    # Select a syntax highight.
+    # Check the static/css/highlight directory for options.
+    highlight = "github"
+
+    # Displays under the author name in the sidebar, keep it short.
+    # You can use markdown here.
+    tagline = "Learning, Living, Loving."
+
+    # Metadata used to drive integrations.
+    #googleAuthorship = "Your Google+ profile ID"
+    #googleAnalytics = "Your Google Analytics tracking code"
+    gravatarHash = "afe70953cbdaeca0b1a8388aac052e7e"
+
+    # Sidebar social links, avoid enabling too many of these if possible.
+    # These should be full URLs.
+    github = "https://github.com/grange74"
+    linkedin = "https://www.linkedin.com/in/ngrange"
+    twitter = "https://twitter.com/ngrange"
