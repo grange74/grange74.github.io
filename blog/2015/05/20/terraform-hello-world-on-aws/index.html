@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Terraform Hello World on AWS &middot; Nicolas Grange</title>
+
+  
+  <link rel="stylesheet" href="http://grange74.github.io//css/poole.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/hyde.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/poole-overrides.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/hyde-x.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/highlight/github.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="grange74&#39;s blog &middot; Nicolas Grange" />
+
+  <meta name="description" content="grange74&#39;s blog">
+  <meta name="keywords" content="grange74,blog">
+  
+</head>
+<body class="theme-base-0d">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="http://www.gravatar.com/avatar/afe70953cbdaeca0b1a8388aac052e7e?s=200" alt="gravatar">
+      <h1>Nicolas Grange</h1>
+      <p class="lead"><p>Learning, Living, Loving.</p>
+</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://grange74.github.io//">Blog</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://github.com/grange74">GitHub</a></li>
+      <li class="sidebar-nav-item"><a href="https://www.linkedin.com/in/ngrange">LinkedIn</a></li>
+      
+      
+      <li class="sidebar-nav-item"><a href="https://twitter.com/ngrange">Twitter</a></li>
+    </ul>
+
+    <p>Copyright &copy; 2015 <a href="http://grange74.github.io//license">License</a><br/>
+       Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+<div class="content container">
+  <div class="post">
+    <h1>Terraform Hello World on AWS</h1>
+    <span class="post-date">May 20, 2015 &middot; 3 minute read
+    </span>
+    
+
+<p>So you&rsquo;ve heard about <a href="https://terraform.io/">Terraform</a>, you here that its another cool product developed by <a href="https://www.hashicorp.com/">HashiCorp</a> and so you want it try it out.</p>
+
+<p>Here&rsquo;s one of the simplest tutorials possible.</p>
+
+<pre><code>provider &quot;aws&quot; {
+    access_key = &quot;ABC123&quot;
+    secret_key = &quot;DEF456&quot;
+    region = &quot;us-east-1&quot;
+}
+
+resource &quot;aws_instance&quot; &quot;web&quot; {
+    ami = &quot;ami-1ecae776&quot;
+    instance_type = &quot;t2.micro&quot;
+}
+</code></pre>
+
+<pre><code>$ terraform plan
+Refreshing Terraform state prior to plan...
+
+
+The Terraform execution plan has been generated and is shown below.
+Resources are shown in alphabetical order for quick scanning. Green resources
+will be created (or destroyed and then created if an existing resource
+exists), yellow resources are being changed in-place, and red resources
+will be destroyed.
+
+Note: You didn't specify an &quot;-out&quot; parameter to save this plan, so when
+&quot;apply&quot; is called, Terraform can't guarantee this is what will execute.
+
++ aws_instance.web
+    ami:                      &quot;&quot; =&gt; &quot;ami-1ecae776&quot;
+    availability_zone:        &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    ebs_block_device.#:       &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    ephemeral_block_device.#: &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    instance_type:            &quot;&quot; =&gt; &quot;t2.micro&quot;
+    key_name:                 &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    placement_group:          &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    private_dns:              &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    private_ip:               &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    public_dns:               &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    public_ip:                &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    root_block_device.#:      &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    security_groups.#:        &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    subnet_id:                &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    tenancy:                  &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+    vpc_security_group_ids.#: &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+</code></pre>
+
+<pre><code>$ terraform apply
+aws_instance.web: Creating...
+  ami:                      &quot;&quot; =&gt; &quot;ami-1ecae776&quot;
+  availability_zone:        &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  ebs_block_device.#:       &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  ephemeral_block_device.#: &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  instance_type:            &quot;&quot; =&gt; &quot;t2.micro&quot;
+  key_name:                 &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  placement_group:          &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  private_dns:              &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  private_ip:               &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  public_dns:               &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  public_ip:                &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  root_block_device.#:      &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  security_groups.#:        &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  subnet_id:                &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  tenancy:                  &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+  vpc_security_group_ids.#: &quot;&quot; =&gt; &quot;&lt;computed&gt;&quot;
+aws_instance.web: Creation complete
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+The state of your infrastructure has been saved to the path
+below. This state is required to modify and destroy your
+infrastructure, so keep it safe. To inspect the complete state
+use the `terraform show` command.
+
+State path: terraform.tfstate
+</code></pre>
+
+<pre><code>$ terraform show
+aws_instance.web:
+  id = i-b6724f60
+  ami = ami-1ecae776
+  availability_zone = us-east-1c
+  ebs_block_device.# = 0
+  ebs_optimized = false
+  ephemeral_block_device.# = 0
+  instance_type = t2.micro
+  private_dns = ip-172-31-57-177.ec2.internal
+  private_ip = 172.31.57.177
+  public_dns = ec2-52-4-4-18.compute-1.amazonaws.com
+  public_ip = 52.4.4.18
+  root_block_device.# = 1
+  root_block_device.0.delete_on_termination = true
+  root_block_device.0.iops = 24
+  root_block_device.0.volume_size = 8
+  root_block_device.0.volume_type = gp2
+  security_groups.# = 0
+  subnet_id = subnet-3025cd1b
+  tags.# = 0
+  tenancy = default
+  vpc_security_group_ids.# = 1
+  vpc_security_group_ids.324056906 = sg-901700f5
+</code></pre>
+
+<pre><code>$ terraform destroy
+Do you really want to destroy?
+  Terraform will delete all your managed infrastructure.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_instance.web: Refreshing state... (ID: i-b6724f60)
+aws_instance.web: Destroying...
+aws_instance.web: Destruction complete
+
+Apply complete! Resources: 0 added, 0 changed, 1 destroyed.
+</code></pre>
+
+<h3 id="creating-an-amazon-account-generating-keys:a3273d1cbb5ab0a3911168c8acaeda5e">Creating an Amazon Account &amp; Generating Keys</h3>
+
+<p>This assumes you have an Amazon Web Services (AWS) account
+<a href="http://aws.amazon.com/free/">Free Tier</a>.</p>
+
+<p>Identity and Access Management (IAM)
+Create new User and generate an access key</p>
+
+  </div>
+  
+</div>
+
+
+
+
+<script src="http://grange74.github.io//js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  var _gaq=[['_setAccount','UA-61327070-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
