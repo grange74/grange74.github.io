@@ -47,7 +47,7 @@ Pull down the present package:
 go get golang.org/x/tools/cmd/present 
 ```
 
-That should of created the present binary in your $GOPATH/bin. Now run that from the directory where your slide is.
+That should of created the present binary in your $GOPATH/bin. Now run that from the directory where your slide is (or a parent directory).
 
 ```
 $GOPATH/bin/present
@@ -59,9 +59,7 @@ If it worked you should see the following:
 2015/05/21 23:41:37 Open your web browser and visit http://127.0.0.1:3999
 ```
 
-Now open your browser and see your slides: [http://localhost:3999/](http://localhost:3999/)
-
-
+Now open your browser at [http://localhost:3999/](http://localhost:3999/) and you should see your *.slide* file so click on it to see your new slides.
 
 ## Tips
 
@@ -69,8 +67,7 @@ Now open your browser and see your slides: [http://localhost:3999/](http://local
 ```
 $GOPATH/bin/present -http="192.168.0.103:3999"
 ```
-
-2.  Add the bin directory to your path so you can just ```present``` to start the slides.
+2. Add the bin directory to your path so you can just ```present``` to start the slides.
 ```
 export PATH="$GOPATH/bin:$PATH"
 ```

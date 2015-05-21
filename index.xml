@@ -60,7 +60,7 @@ Well then give Go&amp;rsquo;s present package a try.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;go get golang.org/x/tools/cmd/present 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;That should of created the present binary in your $GOPATH/bin. Now run that from the directory where your slide is.&lt;/p&gt;
+&lt;p&gt;That should of created the present binary in your $GOPATH/bin. Now run that from the directory where your slide is (or a parent directory).&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$GOPATH/bin/present
 &lt;/code&gt;&lt;/pre&gt;
@@ -70,7 +70,7 @@ Well then give Go&amp;rsquo;s present package a try.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;2015/05/21 23:41:37 Open your web browser and visit http://127.0.0.1:3999
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now open your browser and see your slides: &lt;a href=&#34;http://localhost:3999/&#34;&gt;http://localhost:3999/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now open your browser at &lt;a href=&#34;http://localhost:3999/&#34;&gt;http://localhost:3999/&lt;/a&gt; and you should see your &lt;em&gt;.slide&lt;/em&gt; file so click on it to see your new slides.&lt;/p&gt;
 
 &lt;h2 id=&#34;tips:21ac2434c354603f197e380c9f0634f6&#34;&gt;Tips&lt;/h2&gt;
 
