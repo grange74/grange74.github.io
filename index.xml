@@ -6,8 +6,89 @@
     <description>Recent content on grange74&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 May 2015 20:22:44 +1100</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2015 23:15:44 +1100</lastBuildDate>
     <atom:link href="http://grange74.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Creating Slides using Go&#39;s present package</title>
+      <link>http://grange74.github.io/blog/2015/05/21/creating-slides-using-gos-present-package/</link>
+      <pubDate>Thu, 21 May 2015 23:15:44 +1100</pubDate>
+      
+      <guid>http://grange74.github.io/blog/2015/05/21/creating-slides-using-gos-present-package/</guid>
+      <description>
+
+&lt;p&gt;Sick of using Powerpoint? Just want to create simple, clean slides for your next tech presentation?
+Well then give Go&amp;rsquo;s present package a try.&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-the-slides:21ac2434c354603f197e380c9f0634f6&#34;&gt;Creating the Slides&lt;/h2&gt;
+
+&lt;p&gt;Just create a &lt;em&gt;.slide&lt;/em&gt; file in your favourite text editor. The syntax is pretty simple. The full syntax is documented on the &lt;a href=&#34;https://godoc.org/golang.org/x/tools/present&#34;&gt;present package&lt;/a&gt; page.&lt;/p&gt;
+
+&lt;p&gt;Here is a simple example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Data Center Automation Presentation
+
+* Agenda
+- Terraform Example
+- Chef Example
+
+* Terraform Example
+.image images/terraform-example.png _ 800
+
+* Chef Example
+.code code/recipes/default.rb
+
+.code code/attributes/default.rb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It should be pretty self-explanatory but just in case:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The first line is just the title of the Presentation.&lt;/li&gt;
+&lt;li&gt;Asterix (*) indicate the title of each slide.&lt;/li&gt;
+&lt;li&gt;Dash (-) indicate a bullet point.&lt;/li&gt;
+&lt;li&gt;.image to insert an image using a local relative path.&lt;/li&gt;
+&lt;li&gt;.code pulls in code using a local relative path.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;viewing-the-slides:21ac2434c354603f197e380c9f0634f6&#34;&gt;Viewing the Slides&lt;/h2&gt;
+
+&lt;p&gt;Now to see your slides. You&amp;rsquo;ll need Go installed and setup. Hopefully you already have that otherwise it&amp;rsquo;s about time you &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;got started :-)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pull down the present package:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go get golang.org/x/tools/cmd/present 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That should of created the present binary in your $GOPATH/bin. Now run that from the directory where your slide is.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$GOPATH/bin/present
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If it worked you should see the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2015/05/21 23:41:37 Open your web browser and visit http://127.0.0.1:3999
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now open your browser and see your slides: &lt;a href=&#34;http://localhost:3999/&#34;&gt;http://localhost:3999/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;tips:21ac2434c354603f197e380c9f0634f6&#34;&gt;Tips&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;If you want to share your slides with someone else in the office, you can always change the IP and/or Port that the present binary is binding on:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;$GOPATH/bin/present -http=&amp;quot;192.168.0.103:3999&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Add the bin directory to your path so you can just &lt;code&gt;present&lt;/code&gt; to start the slides.
+&lt;code&gt;
+export PATH=&amp;quot;$GOPATH/bin:$PATH&amp;quot;
+&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Terraform Hello World on AWS</title>

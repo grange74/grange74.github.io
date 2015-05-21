@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Creating Slides using Go&#39;s present package &middot; Nicolas Grange</title>
+
+  
+  <link rel="stylesheet" href="http://grange74.github.io//css/poole.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/hyde.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/poole-overrides.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/hyde-x.css">
+  <link rel="stylesheet" href="http://grange74.github.io//css/highlight/github.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="grange74&#39;s blog &middot; Nicolas Grange" />
+
+  <meta name="description" content="grange74&#39;s blog">
+  <meta name="keywords" content="grange74,blog">
+  
+</head>
+<body class="theme-base-0d">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="http://www.gravatar.com/avatar/afe70953cbdaeca0b1a8388aac052e7e?s=200" alt="gravatar">
+      <h1>Nicolas Grange</h1>
+      <p class="lead"><p>Learning, Living, Loving.</p>
+</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://grange74.github.io//">Blog</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://github.com/grange74">GitHub</a></li>
+      <li class="sidebar-nav-item"><a href="https://www.linkedin.com/in/ngrange">LinkedIn</a></li>
+      
+      
+      <li class="sidebar-nav-item"><a href="https://twitter.com/ngrange">Twitter</a></li>
+    </ul>
+
+    <p>Copyright &copy; 2015 <a href="http://grange74.github.io//license">License</a><br/>
+       Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+<div class="content container">
+  <div class="post">
+    <h1>Creating Slides using Go&#39;s present package</h1>
+    <span class="post-date">May 21, 2015 &middot; 2 minute read
+    </span>
+    
+
+<p>Sick of using Powerpoint? Just want to create simple, clean slides for your next tech presentation?
+Well then give Go&rsquo;s present package a try.</p>
+
+<h2 id="creating-the-slides:21ac2434c354603f197e380c9f0634f6">Creating the Slides</h2>
+
+<p>Just create a <em>.slide</em> file in your favourite text editor. The syntax is pretty simple. The full syntax is documented on the <a href="https://godoc.org/golang.org/x/tools/present">present package</a> page.</p>
+
+<p>Here is a simple example:</p>
+
+<pre><code>Data Center Automation Presentation
+
+* Agenda
+- Terraform Example
+- Chef Example
+
+* Terraform Example
+.image images/terraform-example.png _ 800
+
+* Chef Example
+.code code/recipes/default.rb
+
+.code code/attributes/default.rb
+</code></pre>
+
+<p>It should be pretty self-explanatory but just in case:</p>
+
+<ul>
+<li>The first line is just the title of the Presentation.</li>
+<li>Asterix (*) indicate the title of each slide.</li>
+<li>Dash (-) indicate a bullet point.</li>
+<li>.image to insert an image using a local relative path.</li>
+<li>.code pulls in code using a local relative path.</li>
+</ul>
+
+<h2 id="viewing-the-slides:21ac2434c354603f197e380c9f0634f6">Viewing the Slides</h2>
+
+<p>Now to see your slides. You&rsquo;ll need Go installed and setup. Hopefully you already have that otherwise it&rsquo;s about time you <a href="https://golang.org/doc/install">got started :-)</a>.</p>
+
+<p>Pull down the present package:</p>
+
+<pre><code>go get golang.org/x/tools/cmd/present 
+</code></pre>
+
+<p>That should of created the present binary in your $GOPATH/bin. Now run that from the directory where your slide is.</p>
+
+<pre><code>$GOPATH/bin/present
+</code></pre>
+
+<p>If it worked you should see the following:</p>
+
+<pre><code>2015/05/21 23:41:37 Open your web browser and visit http://127.0.0.1:3999
+</code></pre>
+
+<p>Now open your browser and see your slides: <a href="http://localhost:3999/">http://localhost:3999/</a></p>
+
+<h2 id="tips:21ac2434c354603f197e380c9f0634f6">Tips</h2>
+
+<ol>
+<li>If you want to share your slides with someone else in the office, you can always change the IP and/or Port that the present binary is binding on:</li>
+</ol>
+
+<pre><code>$GOPATH/bin/present -http=&quot;192.168.0.103:3999&quot;
+</code></pre>
+
+<ol>
+<li>Add the bin directory to your path so you can just <code>present</code> to start the slides.
+<code>
+export PATH=&quot;$GOPATH/bin:$PATH&quot;
+</code></li>
+</ol>
+
+  </div>
+  
+</div>
+
+
+
+
+<script src="http://grange74.github.io//js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  var _gaq=[['_setAccount','UA-61327070-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
