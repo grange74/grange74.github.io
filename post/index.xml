@@ -75,17 +75,8 @@ Well then give Go&amp;rsquo;s present package a try.&lt;/p&gt;
 &lt;h2 id=&#34;tips:21ac2434c354603f197e380c9f0634f6&#34;&gt;Tips&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;If you want to share your slides with someone else in the office, you can always change the IP and/or Port that the present binary is binding on:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;$GOPATH/bin/present -http=&amp;quot;192.168.0.103:3999&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Add the bin directory to your path so you can just &lt;code&gt;present&lt;/code&gt; to start the slides.
-&lt;code&gt;
-export PATH=&amp;quot;$GOPATH/bin:$PATH&amp;quot;
-&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If you want to share your slides with someone else in the office, you can always change the IP and/or Port that the present binary is binding on: &lt;code&gt;$GOPATH/bin/present -http=&amp;quot;192.168.0.103:3999&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add the bin directory to your path so you can just use &lt;code&gt;present&lt;/code&gt; to start the slides. &lt;code&gt;export PATH=&amp;quot;$GOPATH/bin:$PATH&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>

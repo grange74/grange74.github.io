@@ -63,11 +63,5 @@ Now open your browser at [http://localhost:3999/](http://localhost:3999/) and yo
 
 ## Tips
 
-1. If you want to share your slides with someone else in the office, you can always change the IP and/or Port that the present binary is binding on:
-```
-$GOPATH/bin/present -http="192.168.0.103:3999"
-```
-2. Add the bin directory to your path so you can just ```present``` to start the slides.
-```
-export PATH="$GOPATH/bin:$PATH"
-```
+1. If you want to share your slides with someone else in the office, you can always change the IP and/or Port that the present binary is binding on: ```$GOPATH/bin/present -http="192.168.0.103:3999" ```
+2. Add the bin directory to your path so you can just use ```present``` to start the slides. ``` export PATH="$GOPATH/bin:$PATH" ```
